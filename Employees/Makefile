@@ -7,10 +7,14 @@
 # * allows for the usage of make commands for the code within the employees file
 # */
 
+#Compile using g++
 CC = g++
+#Compile with all errors and warnings
 CFLAGS = -g -Wall -Wextra
+#The build target
 TARGET = employees
 
+#Compilation commands
 all: $(TARGET)
 
 $(TARGET): Employee.o Officer.o Supervisor.o main.o
@@ -28,5 +32,6 @@ Supervisor.o: Supervisor.cpp Supervisor.h
 main.o: main.cpp Employee.h Officer.h Supervisor.h
 	$(CC) $(CFLAGS) -c main.cpp
 
+#Clean up files
 clean:
 	$(RM) $(TARGET) *.o *~
