@@ -13,8 +13,8 @@ TARGET = employees
 
 all: $(TARGET)
 
-$(TARGET): $(TARGET).c
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+$(TARGET): Employee.o Officer.o Supervisor.o main.o
+	$(CC) $(CFLAGS) -o $(TARGET) Employee.o Officer.o Supervisor.o main.o
 
 Employee.o: Employee.cpp Employee.h
 	$(CC) $(CFLAGS) -c Employee.cpp
